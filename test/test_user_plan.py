@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.user_plan import UserPlan
+from nitrozenio.models.user_plan import UserPlan
 
 class TestUserPlan(unittest.TestCase):
     """UserPlan unit test stubs"""

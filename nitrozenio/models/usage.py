@@ -17,21 +17,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from nitrozenio.models.usage_limits import UsageLimits
 from typing import Optional, Set
 from typing_extensions import Self
 
-class TokenInfo(BaseModel):
+class Usage(BaseModel):
     """
-    TokenInfo
+    Usage
     """ # noqa: E501
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
-    last_used_at: Optional[datetime] = None
-    created_at: Optional[datetime] = None
-    __properties: ClassVar[List[str]] = ["id", "name", "last_used_at", "created_at"]
+    projects_count: Optional[StrictInt] = None
+    entries_this_month: Optional[StrictInt] = None
+    limits: Optional[UsageLimits] = None
+    plan_name: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["projects_count", "entries_this_month", "limits", "plan_name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +51,7 @@ class TokenInfo(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TokenInfo from a JSON string"""
+        """Create an instance of Usage from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,16 +72,14 @@ class TokenInfo(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if last_used_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.last_used_at is None and "last_used_at" in self.model_fields_set:
-            _dict['last_used_at'] = None
-
+        # override the default output from pydantic by calling `to_dict()` of limits
+        if self.limits:
+            _dict['limits'] = self.limits.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TokenInfo from a dict"""
+        """Create an instance of Usage from a dict"""
         if obj is None:
             return None
 
@@ -89,10 +87,10 @@ class TokenInfo(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "name": obj.get("name"),
-            "last_used_at": obj.get("last_used_at"),
-            "created_at": obj.get("created_at")
+            "projects_count": obj.get("projects_count"),
+            "entries_this_month": obj.get("entries_this_month"),
+            "limits": UsageLimits.from_dict(obj["limits"]) if obj.get("limits") is not None else None,
+            "plan_name": obj.get("plan_name")
         })
         return _obj
 

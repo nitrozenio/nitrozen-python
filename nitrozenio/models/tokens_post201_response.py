@@ -17,21 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
+from nitrozenio.models.new_token import NewToken
 from typing import Optional, Set
 from typing_extensions import Self
 
-class NewToken(BaseModel):
+class TokensPost201Response(BaseModel):
     """
-    NewToken
+    TokensPost201Response
     """ # noqa: E501
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
-    token: Optional[StrictStr] = Field(default=None, description="The plain-text token. Only shown once.")
-    created_at: Optional[datetime] = None
-    __properties: ClassVar[List[str]] = ["id", "name", "token", "created_at"]
+    data: Optional[NewToken] = None
+    __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +48,7 @@ class NewToken(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of NewToken from a JSON string"""
+        """Create an instance of TokensPost201Response from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,11 +69,14 @@ class NewToken(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of data
+        if self.data:
+            _dict['data'] = self.data.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of NewToken from a dict"""
+        """Create an instance of TokensPost201Response from a dict"""
         if obj is None:
             return None
 
@@ -84,10 +84,7 @@ class NewToken(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "name": obj.get("name"),
-            "token": obj.get("token"),
-            "created_at": obj.get("created_at")
+            "data": NewToken.from_dict(obj["data"]) if obj.get("data") is not None else None
         })
         return _obj
 

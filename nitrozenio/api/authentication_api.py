@@ -17,13 +17,13 @@ from typing_extensions import Annotated
 
 from pydantic import Field, StrictInt
 from typing_extensions import Annotated
-from openapi_client.models.tokens_get200_response import TokensGet200Response
-from openapi_client.models.tokens_post201_response import TokensPost201Response
-from openapi_client.models.tokens_post_request import TokensPostRequest
+from nitrozenio.models.tokens_get200_response import TokensGet200Response
+from nitrozenio.models.tokens_post201_response import TokensPost201Response
+from nitrozenio.models.tokens_post_request import TokensPostRequest
 
-from openapi_client.api_client import ApiClient, RequestSerialized
-from openapi_client.api_response import ApiResponse
-from openapi_client.rest import RESTResponseType
+from nitrozenio.api_client import ApiClient, RequestSerialized
+from nitrozenio.api_response import ApiResponse
+from nitrozenio.rest import RESTResponseType
 
 
 class AuthenticationApi:

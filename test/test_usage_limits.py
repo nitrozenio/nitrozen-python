@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.usage_limits import UsageLimits
+from nitrozenio.models.usage_limits import UsageLimits
 
 class TestUsageLimits(unittest.TestCase):
     """UsageLimits unit test stubs"""

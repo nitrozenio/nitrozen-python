@@ -18,7 +18,7 @@ from setuptools import setup, find_packages  # noqa: H301
 #
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
-NAME = "openapi-client"
+NAME = "nitrozenio"
 VERSION = "1.0.0"
 PYTHON_REQUIRES = ">= 3.9"
 REQUIRES = [
@@ -31,17 +31,14 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="Nitrozen API",
-    author="Nitrozen Support",
-    author_email="team@openapitools.org",
-    url="",
-    keywords=["OpenAPI", "OpenAPI-Generator", "Nitrozen API"],
+    description="Official Python SDK for the Nitrozen.io changelog API",
+    author="Nitrozen.io",
+    author_email="support@nitrozen.io",
+    url="https://nitrozen.io",
+    keywords=["nitrozen", "changelog", "api", "sdk"],
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
     long_description_content_type='text/markdown',
-    long_description="""\
-    The Nitrozen API allows you to programmatically manage your changelog projects and entries.  ## Authentication  All authenticated endpoints require a Bearer token. Create an API token from your [API Tokens](/api-tokens) page, then include it in the &#x60;Authorization&#x60; header:  &#x60;&#x60;&#x60; Authorization: Bearer YOUR_TOKEN_HERE &#x60;&#x60;&#x60;  ## Rate Limiting  API rate limits are determined by your plan. Each plan specifies a &#x60;api_rate_limit&#x60; value (requests per minute). When the limit is exceeded, the API returns a &#x60;429 Too Many Requests&#x60; response. Unauthenticated requests are limited to 60 requests per minute per IP address.  ## Pagination  List endpoints that support pagination accept &#x60;page&#x60; and &#x60;per_page&#x60; query parameters. The response includes a &#x60;meta&#x60; object with pagination details. 
-    """,  # noqa: E501
-    package_data={"openapi_client": ["py.typed"]},
+    package_data={"nitrozenio": ["py.typed"]},
 )

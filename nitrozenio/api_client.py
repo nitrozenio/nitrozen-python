@@ -26,11 +26,11 @@ from urllib.parse import quote
 from typing import Tuple, Optional, List, Dict, Union
 from pydantic import SecretStr
 
-from openapi_client.configuration import Configuration
-from openapi_client.api_response import ApiResponse, T as ApiResponseT
-import openapi_client.models
-from openapi_client import rest
-from openapi_client.exceptions import (
+from nitrozenio.configuration import Configuration
+from nitrozenio.api_response import ApiResponse, T as ApiResponseT
+import nitrozenio.models
+from nitrozenio import rest
+from nitrozenio.exceptions import (
     ApiValueError,
     ApiException,
     BadRequestException,
@@ -455,7 +455,7 @@ class ApiClient:
             if klass in self.NATIVE_TYPES_MAPPING:
                 klass = self.NATIVE_TYPES_MAPPING[klass]
             else:
-                klass = getattr(openapi_client.models, klass)
+                klass = getattr(nitrozenio.models, klass)
 
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)

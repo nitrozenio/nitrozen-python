@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.tokens_post201_response import TokensPost201Response
+from nitrozenio.models.tokens_post201_response import TokensPost201Response
 
 class TestTokensPost201Response(unittest.TestCase):
     """TokensPost201Response unit test stubs"""
@@ -35,7 +35,7 @@ class TestTokensPost201Response(unittest.TestCase):
         model = TokensPost201Response()
         if include_optional:
             return TokensPost201Response(
-                data = openapi_client.models.new_token.NewToken(
+                data = nitrozenio.models.new_token.NewToken(
                     id = 56, 
                     name = '', 
                     token = '', 

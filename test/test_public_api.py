@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.public_api import PublicApi
+from nitrozenio.api.public_api import PublicApi
 
 
 class TestPublicApi(unittest.TestCase):

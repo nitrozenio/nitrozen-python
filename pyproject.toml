@@ -1,12 +1,12 @@
 [project]
-name = "openapi_client"
+name = "nitrozenio"
 version = "1.0.0"
-description = "Nitrozen API"
+description = "Official Python SDK for the Nitrozen.io changelog API"
 authors = [
-  {name = "Nitrozen Support",email = "team@openapitools.org"},
+  {name = "Nitrozen.io",email = "support@nitrozen.io"},
 ]
 readme = "README.md"
-keywords = ["OpenAPI", "OpenAPI-Generator", "Nitrozen API"]
+keywords = ["nitrozen", "changelog", "api", "sdk"]
 requires-python = ">=3.9"
 
 dependencies = [
@@ -17,7 +17,9 @@ dependencies = [
 ]
 
 [project.urls]
-Repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
+Homepage = "https://nitrozen.io"
+Repository = "https://github.com/nitrozenio/nitrozen-python"
+Documentation = "https://nitrozen.io/docs"
 
 [tool.poetry]
 requires-poetry = ">=2.0"
@@ -40,7 +42,7 @@ extension-pkg-whitelist = "pydantic"
 
 [tool.mypy]
 files = [
-  "openapi_client",
+  "nitrozenio",
   #"test",  # auto-generated tests
   "tests", # hand-written tests
 ]
@@ -78,7 +80,7 @@ disallow_any_generics = true
 
 [[tool.mypy.overrides]]
 module = [
-  "openapi_client.configuration",
+  "nitrozenio.configuration",
 ]
 warn_unused_ignores = true
 strict_equality = true

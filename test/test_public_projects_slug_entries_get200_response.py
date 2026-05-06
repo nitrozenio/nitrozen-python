@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.public_projects_slug_entries_get200_response import PublicProjectsSlugEntriesGet200Response
+from nitrozenio.models.public_projects_slug_entries_get200_response import PublicProjectsSlugEntriesGet200Response
 
 class TestPublicProjectsSlugEntriesGet200Response(unittest.TestCase):
     """PublicProjectsSlugEntriesGet200Response unit test stubs"""
@@ -36,7 +36,7 @@ class TestPublicProjectsSlugEntriesGet200Response(unittest.TestCase):
         if include_optional:
             return PublicProjectsSlugEntriesGet200Response(
                 data = [
-                    openapi_client.models.entry.Entry(
+                    nitrozenio.models.entry.Entry(
                         id = 56, 
                         title = '', 
                         content = '', 

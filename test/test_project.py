@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.project import Project
+from nitrozenio.models.project import Project
 
 class TestProject(unittest.TestCase):
     """Project unit test stubs"""

@@ -19,18 +19,16 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.entry import Entry
-from openapi_client.models.pagination_meta import PaginationMeta
+from nitrozenio.models.token_info import TokenInfo
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ProjectsProjectEntriesGet200Response(BaseModel):
+class TokensGet200Response(BaseModel):
     """
-    ProjectsProjectEntriesGet200Response
+    TokensGet200Response
     """ # noqa: E501
-    data: Optional[List[Entry]] = None
-    meta: Optional[PaginationMeta] = None
-    __properties: ClassVar[List[str]] = ["data", "meta"]
+    data: Optional[List[TokenInfo]] = None
+    __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +48,7 @@ class ProjectsProjectEntriesGet200Response(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ProjectsProjectEntriesGet200Response from a JSON string"""
+        """Create an instance of TokensGet200Response from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -78,14 +76,11 @@ class ProjectsProjectEntriesGet200Response(BaseModel):
                 if _item_data:
                     _items.append(_item_data.to_dict())
             _dict['data'] = _items
-        # override the default output from pydantic by calling `to_dict()` of meta
-        if self.meta:
-            _dict['meta'] = self.meta.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ProjectsProjectEntriesGet200Response from a dict"""
+        """Create an instance of TokensGet200Response from a dict"""
         if obj is None:
             return None
 
@@ -93,8 +88,7 @@ class ProjectsProjectEntriesGet200Response(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [Entry.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
-            "meta": PaginationMeta.from_dict(obj["meta"]) if obj.get("meta") is not None else None
+            "data": [TokenInfo.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
         })
         return _obj
 

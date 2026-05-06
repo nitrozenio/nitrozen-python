@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.entries_api import EntriesApi
+from nitrozenio.api.entries_api import EntriesApi
 
 
 class TestEntriesApi(unittest.TestCase):

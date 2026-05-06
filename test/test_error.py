@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.error import Error
+from nitrozenio.models.error import Error
 
 class TestError(unittest.TestCase):
     """Error unit test stubs"""

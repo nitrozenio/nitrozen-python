@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.user_usage_get200_response import UserUsageGet200Response
+from nitrozenio.models.user_usage_get200_response import UserUsageGet200Response
 
 class TestUserUsageGet200Response(unittest.TestCase):
     """UserUsageGet200Response unit test stubs"""
@@ -35,10 +35,10 @@ class TestUserUsageGet200Response(unittest.TestCase):
         model = UserUsageGet200Response()
         if include_optional:
             return UserUsageGet200Response(
-                data = openapi_client.models.usage.Usage(
+                data = nitrozenio.models.usage.Usage(
                     projects_count = 56, 
                     entries_this_month = 56, 
-                    limits = openapi_client.models.usage_limits.Usage_limits(
+                    limits = nitrozenio.models.usage_limits.Usage_limits(
                         max_projects = 56, 
                         max_entries_per_month = 56, ), 
                     plan_name = '', )

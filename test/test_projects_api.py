@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.projects_api import ProjectsApi
+from nitrozenio.api.projects_api import ProjectsApi
 
 
 class TestProjectsApi(unittest.TestCase):

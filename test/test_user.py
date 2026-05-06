@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.user import User
+from nitrozenio.models.user import User
 
 class TestUser(unittest.TestCase):
     """User unit test stubs"""
@@ -38,7 +38,7 @@ class TestUser(unittest.TestCase):
                 id = 56,
                 name = '',
                 email = '',
-                plan = openapi_client.models.user_plan.User_plan(
+                plan = nitrozenio.models.user_plan.User_plan(
                     id = 56, 
                     name = '', 
                     plan_type = 'free', 

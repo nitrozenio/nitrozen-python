@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.pagination_meta import PaginationMeta
+from nitrozenio.models.pagination_meta import PaginationMeta
 
 class TestPaginationMeta(unittest.TestCase):
     """PaginationMeta unit test stubs"""

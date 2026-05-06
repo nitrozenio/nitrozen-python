@@ -19,15 +19,15 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.token_info import TokenInfo
+from nitrozenio.models.project import Project
 from typing import Optional, Set
 from typing_extensions import Self
 
-class TokensGet200Response(BaseModel):
+class ProjectsGet200Response(BaseModel):
     """
-    TokensGet200Response
+    ProjectsGet200Response
     """ # noqa: E501
-    data: Optional[List[TokenInfo]] = None
+    data: Optional[List[Project]] = None
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
@@ -48,7 +48,7 @@ class TokensGet200Response(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TokensGet200Response from a JSON string"""
+        """Create an instance of ProjectsGet200Response from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -80,7 +80,7 @@ class TokensGet200Response(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TokensGet200Response from a dict"""
+        """Create an instance of ProjectsGet200Response from a dict"""
         if obj is None:
             return None
 
@@ -88,7 +88,7 @@ class TokensGet200Response(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [TokenInfo.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
+            "data": [Project.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
         })
         return _obj
 

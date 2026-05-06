@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.usage import Usage
+from nitrozenio.models.usage import Usage
 
 class TestUsage(unittest.TestCase):
     """Usage unit test stubs"""
@@ -37,7 +37,7 @@ class TestUsage(unittest.TestCase):
             return Usage(
                 projects_count = 56,
                 entries_this_month = 56,
-                limits = openapi_client.models.usage_limits.Usage_limits(
+                limits = nitrozenio.models.usage_limits.Usage_limits(
                     max_projects = 56, 
                     max_entries_per_month = 56, ),
                 plan_name = ''

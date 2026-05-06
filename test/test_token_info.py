@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.token_info import TokenInfo
+from nitrozenio.models.token_info import TokenInfo
 
 class TestTokenInfo(unittest.TestCase):
     """TokenInfo unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.authentication_api import AuthenticationApi
+from nitrozenio.api.authentication_api import AuthenticationApi
 
 
 class TestAuthenticationApi(unittest.TestCase):

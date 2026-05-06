@@ -17,21 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.usage_limits import UsageLimits
+from nitrozenio.models.user import User
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Usage(BaseModel):
+class UserGet200Response(BaseModel):
     """
-    Usage
+    UserGet200Response
     """ # noqa: E501
-    projects_count: Optional[StrictInt] = None
-    entries_this_month: Optional[StrictInt] = None
-    limits: Optional[UsageLimits] = None
-    plan_name: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["projects_count", "entries_this_month", "limits", "plan_name"]
+    data: Optional[User] = None
+    __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +48,7 @@ class Usage(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Usage from a JSON string"""
+        """Create an instance of UserGet200Response from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,14 +69,14 @@ class Usage(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of limits
-        if self.limits:
-            _dict['limits'] = self.limits.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of data
+        if self.data:
+            _dict['data'] = self.data.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Usage from a dict"""
+        """Create an instance of UserGet200Response from a dict"""
         if obj is None:
             return None
 
@@ -87,10 +84,7 @@ class Usage(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "projects_count": obj.get("projects_count"),
-            "entries_this_month": obj.get("entries_this_month"),
-            "limits": UsageLimits.from_dict(obj["limits"]) if obj.get("limits") is not None else None,
-            "plan_name": obj.get("plan_name")
+            "data": User.from_dict(obj["data"]) if obj.get("data") is not None else None
         })
         return _obj
 

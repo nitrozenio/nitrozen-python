@@ -17,18 +17,23 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from datetime import datetime
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.new_token import NewToken
+from nitrozenio.models.user_plan import UserPlan
 from typing import Optional, Set
 from typing_extensions import Self
 
-class TokensPost201Response(BaseModel):
+class User(BaseModel):
     """
-    TokensPost201Response
+    User
     """ # noqa: E501
-    data: Optional[NewToken] = None
-    __properties: ClassVar[List[str]] = ["data"]
+    id: Optional[StrictInt] = None
+    name: Optional[StrictStr] = None
+    email: Optional[StrictStr] = None
+    plan: Optional[UserPlan] = None
+    created_at: Optional[datetime] = None
+    __properties: ClassVar[List[str]] = ["id", "name", "email", "plan", "created_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +53,7 @@ class TokensPost201Response(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TokensPost201Response from a JSON string"""
+        """Create an instance of User from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -69,14 +74,19 @@ class TokensPost201Response(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of data
-        if self.data:
-            _dict['data'] = self.data.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of plan
+        if self.plan:
+            _dict['plan'] = self.plan.to_dict()
+        # set to None if plan (nullable) is None
+        # and model_fields_set contains the field
+        if self.plan is None and "plan" in self.model_fields_set:
+            _dict['plan'] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TokensPost201Response from a dict"""
+        """Create an instance of User from a dict"""
         if obj is None:
             return None
 
@@ -84,7 +94,11 @@ class TokensPost201Response(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": NewToken.from_dict(obj["data"]) if obj.get("data") is not None else None
+            "id": obj.get("id"),
+            "name": obj.get("name"),
+            "email": obj.get("email"),
+            "plan": UserPlan.from_dict(obj["plan"]) if obj.get("plan") is not None else None,
+            "created_at": obj.get("created_at")
         })
         return _obj
 

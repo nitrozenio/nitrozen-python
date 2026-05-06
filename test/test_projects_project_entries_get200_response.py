@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.projects_project_entries_get200_response import ProjectsProjectEntriesGet200Response
+from nitrozenio.models.projects_project_entries_get200_response import ProjectsProjectEntriesGet200Response
 
 class TestProjectsProjectEntriesGet200Response(unittest.TestCase):
     """ProjectsProjectEntriesGet200Response unit test stubs"""
@@ -36,7 +36,7 @@ class TestProjectsProjectEntriesGet200Response(unittest.TestCase):
         if include_optional:
             return ProjectsProjectEntriesGet200Response(
                 data = [
-                    openapi_client.models.entry.Entry(
+                    nitrozenio.models.entry.Entry(
                         id = 56, 
                         title = '', 
                         content = '', 
@@ -46,7 +46,7 @@ class TestProjectsProjectEntriesGet200Response(unittest.TestCase):
                         created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ],
-                meta = openapi_client.models.pagination_meta.PaginationMeta(
+                meta = nitrozenio.models.pagination_meta.PaginationMeta(
                     current_page = 56, 
                     last_page = 56, 
                     per_page = 56, 

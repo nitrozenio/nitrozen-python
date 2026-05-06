@@ -17,18 +17,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.user import User
 from typing import Optional, Set
 from typing_extensions import Self
 
-class UserGet200Response(BaseModel):
+class NewToken(BaseModel):
     """
-    UserGet200Response
+    NewToken
     """ # noqa: E501
-    data: Optional[User] = None
-    __properties: ClassVar[List[str]] = ["data"]
+    id: Optional[StrictStr] = None
+    name: Optional[StrictStr] = None
+    token: Optional[StrictStr] = Field(default=None, description="The plain-text token. Only shown once.")
+    created_at: Optional[datetime] = None
+    __properties: ClassVar[List[str]] = ["id", "name", "token", "created_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +51,7 @@ class UserGet200Response(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of UserGet200Response from a JSON string"""
+        """Create an instance of NewToken from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -69,14 +72,11 @@ class UserGet200Response(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of data
-        if self.data:
-            _dict['data'] = self.data.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of UserGet200Response from a dict"""
+        """Create an instance of NewToken from a dict"""
         if obj is None:
             return None
 
@@ -84,7 +84,10 @@ class UserGet200Response(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": User.from_dict(obj["data"]) if obj.get("data") is not None else None
+            "id": obj.get("id"),
+            "name": obj.get("name"),
+            "token": obj.get("token"),
+            "created_at": obj.get("created_at")
         })
         return _obj
 

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.new_token import NewToken
+from nitrozenio.models.new_token import NewToken
 
 class TestNewToken(unittest.TestCase):
     """NewToken unit test stubs"""

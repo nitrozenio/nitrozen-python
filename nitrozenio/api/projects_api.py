@@ -17,13 +17,13 @@ from typing_extensions import Annotated
 
 from pydantic import Field, StrictInt
 from typing_extensions import Annotated
-from openapi_client.models.project_input import ProjectInput
-from openapi_client.models.projects_get200_response import ProjectsGet200Response
-from openapi_client.models.projects_post201_response import ProjectsPost201Response
+from nitrozenio.models.project_input import ProjectInput
+from nitrozenio.models.projects_get200_response import ProjectsGet200Response
+from nitrozenio.models.projects_post201_response import ProjectsPost201Response
 
-from openapi_client.api_client import ApiClient, RequestSerialized
-from openapi_client.api_response import ApiResponse
-from openapi_client.rest import RESTResponseType
+from nitrozenio.api_client import ApiClient, RequestSerialized
+from nitrozenio.api_response import ApiResponse
+from nitrozenio.rest import RESTResponseType
 
 
 class ProjectsApi:

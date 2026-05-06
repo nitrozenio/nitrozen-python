@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.tokens_get200_response import TokensGet200Response
+from nitrozenio.models.tokens_get200_response import TokensGet200Response
 
 class TestTokensGet200Response(unittest.TestCase):
     """TokensGet200Response unit test stubs"""
@@ -36,7 +36,7 @@ class TestTokensGet200Response(unittest.TestCase):
         if include_optional:
             return TokensGet200Response(
                 data = [
-                    openapi_client.models.token_info.TokenInfo(
+                    nitrozenio.models.token_info.TokenInfo(
                         id = 56, 
                         name = '', 
                         last_used_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 

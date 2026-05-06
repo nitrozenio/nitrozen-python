@@ -17,23 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.user_plan import UserPlan
+from nitrozenio.models.usage import Usage
 from typing import Optional, Set
 from typing_extensions import Self
 
-class User(BaseModel):
+class UserUsageGet200Response(BaseModel):
     """
-    User
+    UserUsageGet200Response
     """ # noqa: E501
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
-    email: Optional[StrictStr] = None
-    plan: Optional[UserPlan] = None
-    created_at: Optional[datetime] = None
-    __properties: ClassVar[List[str]] = ["id", "name", "email", "plan", "created_at"]
+    data: Optional[Usage] = None
+    __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -53,7 +48,7 @@ class User(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of User from a JSON string"""
+        """Create an instance of UserUsageGet200Response from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,19 +69,14 @@ class User(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of plan
-        if self.plan:
-            _dict['plan'] = self.plan.to_dict()
-        # set to None if plan (nullable) is None
-        # and model_fields_set contains the field
-        if self.plan is None and "plan" in self.model_fields_set:
-            _dict['plan'] = None
-
+        # override the default output from pydantic by calling `to_dict()` of data
+        if self.data:
+            _dict['data'] = self.data.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of User from a dict"""
+        """Create an instance of UserUsageGet200Response from a dict"""
         if obj is None:
             return None
 
@@ -94,11 +84,7 @@ class User(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "name": obj.get("name"),
-            "email": obj.get("email"),
-            "plan": UserPlan.from_dict(obj["plan"]) if obj.get("plan") is not None else None,
-            "created_at": obj.get("created_at")
+            "data": Usage.from_dict(obj["data"]) if obj.get("data") is not None else None
         })
         return _obj
 

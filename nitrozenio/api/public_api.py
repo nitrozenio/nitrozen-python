@@ -17,11 +17,11 @@ from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr
 from typing_extensions import Annotated
-from openapi_client.models.public_projects_slug_entries_get200_response import PublicProjectsSlugEntriesGet200Response
+from nitrozenio.models.public_projects_slug_entries_get200_response import PublicProjectsSlugEntriesGet200Response
 
-from openapi_client.api_client import ApiClient, RequestSerialized
-from openapi_client.api_response import ApiResponse
-from openapi_client.rest import RESTResponseType
+from nitrozenio.api_client import ApiClient, RequestSerialized
+from nitrozenio.api_response import ApiResponse
+from nitrozenio.rest import RESTResponseType
 
 
 class PublicApi:

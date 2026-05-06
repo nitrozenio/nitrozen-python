@@ -15,12 +15,12 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from openapi_client.models.user_get200_response import UserGet200Response
-from openapi_client.models.user_usage_get200_response import UserUsageGet200Response
+from nitrozenio.models.user_get200_response import UserGet200Response
+from nitrozenio.models.user_usage_get200_response import UserUsageGet200Response
 
-from openapi_client.api_client import ApiClient, RequestSerialized
-from openapi_client.api_response import ApiResponse
-from openapi_client.rest import RESTResponseType
+from nitrozenio.api_client import ApiClient, RequestSerialized
+from nitrozenio.api_response import ApiResponse
+from nitrozenio.rest import RESTResponseType
 
 
 class UsersApi:

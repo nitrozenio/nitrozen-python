@@ -18,13 +18,13 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
-from openapi_client.models.entry_input import EntryInput
-from openapi_client.models.projects_project_entries_get200_response import ProjectsProjectEntriesGet200Response
-from openapi_client.models.projects_project_entries_post201_response import ProjectsProjectEntriesPost201Response
+from nitrozenio.models.entry_input import EntryInput
+from nitrozenio.models.projects_project_entries_get200_response import ProjectsProjectEntriesGet200Response
+from nitrozenio.models.projects_project_entries_post201_response import ProjectsProjectEntriesPost201Response
 
-from openapi_client.api_client import ApiClient, RequestSerialized
-from openapi_client.api_response import ApiResponse
-from openapi_client.rest import RESTResponseType
+from nitrozenio.api_client import ApiClient, RequestSerialized
+from nitrozenio.api_response import ApiResponse
+from nitrozenio.rest import RESTResponseType
 
 
 class EntriesApi:

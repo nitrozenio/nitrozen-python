@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.validation_error import ValidationError
+from nitrozenio.models.validation_error import ValidationError
 
 class TestValidationError(unittest.TestCase):
     """ValidationError unit test stubs"""

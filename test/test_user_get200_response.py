@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.user_get200_response import UserGet200Response
+from nitrozenio.models.user_get200_response import UserGet200Response
 
 class TestUserGet200Response(unittest.TestCase):
     """UserGet200Response unit test stubs"""
@@ -35,11 +35,11 @@ class TestUserGet200Response(unittest.TestCase):
         model = UserGet200Response()
         if include_optional:
             return UserGet200Response(
-                data = openapi_client.models.user.User(
+                data = nitrozenio.models.user.User(
                     id = 56, 
                     name = '', 
                     email = '', 
-                    plan = openapi_client.models.user_plan.User_plan(
+                    plan = nitrozenio.models.user_plan.User_plan(
                         id = 56, 
                         name = '', 
                         plan_type = 'free', 

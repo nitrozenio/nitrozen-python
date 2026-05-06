@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.projects_post201_response import ProjectsPost201Response
+from nitrozenio.models.projects_post201_response import ProjectsPost201Response
 
 class TestProjectsPost201Response(unittest.TestCase):
     """ProjectsPost201Response unit test stubs"""
@@ -35,7 +35,7 @@ class TestProjectsPost201Response(unittest.TestCase):
         model = ProjectsPost201Response()
         if include_optional:
             return ProjectsPost201Response(
-                data = openapi_client.models.project.Project(
+                data = nitrozenio.models.project.Project(
                     id = 56, 
                     name = '', 
                     slug = '', 

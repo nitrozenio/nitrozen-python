@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.entry_input import EntryInput
+from nitrozenio.models.entry_input import EntryInput
 
 class TestEntryInput(unittest.TestCase):
     """EntryInput unit test stubs"""
