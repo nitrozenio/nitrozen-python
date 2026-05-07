@@ -2,9 +2,9 @@
 
 Official Python client for the [Nitrozen.io](https://nitrozen.io) changelog API.
 
-[![PyPI](https://img.shields.io/pypi/v/nitrozenio)](https://pypi.org/project/nitrozenio/)
-[![Python](https://img.shields.io/pypi/pyversions/nitrozenio)](https://pypi.org/project/nitrozenio/)
-[![GitHub](https://img.shields.io/badge/github-nitrozenio%2Fnitrozen--python-blue)](https://github.com/nitrozenio/nitrozen-python)
+[![PyPI](https://img.shields.io/badge/pypi-v1.0.0-blue?logo=pypi&logoColor=white)](https://pypi.org/project/nitrozenio/)
+[![Python](https://img.shields.io/badge/python-3.9%2B-blue?logo=python&logoColor=white)](https://pypi.org/project/nitrozenio/)
+[![GitHub](https://img.shields.io/badge/github-nitrozenio%2Fnitrozen--python-blue?logo=github)](https://github.com/nitrozenio/nitrozen-python)
 
 ## Requirements
 
