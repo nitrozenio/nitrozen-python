@@ -1,3 +1,6 @@
+# Local test scripts
+test_sdk.py
+
 # OpenAPI Generator artifacts — not part of the published SDK
 .openapi-generator/
 git_push.sh
