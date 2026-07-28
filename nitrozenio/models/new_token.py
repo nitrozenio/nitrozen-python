@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,7 +27,7 @@ class NewToken(BaseModel):
     """
     NewToken
     """ # noqa: E501
-    id: Optional[StrictStr] = None
+    id: Optional[StrictInt] = None
     name: Optional[StrictStr] = None
     token: Optional[StrictStr] = Field(default=None, description="The plain-text token. Only shown once.")
     created_at: Optional[datetime] = None

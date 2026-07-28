@@ -1,4 +1,4 @@
-# openapi_client.AuthenticationApi
+# nitrozenio.AuthenticationApi
 
 All URIs are relative to *https://nitrozen.io/api/v1*
 
@@ -21,14 +21,14 @@ Returns all API tokens for the authenticated user. Token values are not included
 * Bearer Authentication (BearerAuth):
 
 ```python
-import openapi_client
-from openapi_client.models.tokens_get200_response import TokensGet200Response
-from openapi_client.rest import ApiException
+import nitrozenio
+from nitrozenio.models.tokens_get200_response import TokensGet200Response
+from nitrozenio.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://nitrozen.io/api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = nitrozenio.Configuration(
     host = "https://nitrozen.io/api/v1"
 )
 
@@ -38,14 +38,14 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: BearerAuth
-configuration = openapi_client.Configuration(
+configuration = nitrozenio.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with nitrozenio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AuthenticationApi(api_client)
+    api_instance = nitrozenio.AuthenticationApi(api_client)
 
     try:
         # List API tokens
@@ -98,15 +98,15 @@ and cannot be retrieved later.
 * Bearer Authentication (BearerAuth):
 
 ```python
-import openapi_client
-from openapi_client.models.tokens_post201_response import TokensPost201Response
-from openapi_client.models.tokens_post_request import TokensPostRequest
-from openapi_client.rest import ApiException
+import nitrozenio
+from nitrozenio.models.tokens_post201_response import TokensPost201Response
+from nitrozenio.models.tokens_post_request import TokensPostRequest
+from nitrozenio.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://nitrozen.io/api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = nitrozenio.Configuration(
     host = "https://nitrozen.io/api/v1"
 )
 
@@ -116,14 +116,14 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: BearerAuth
-configuration = openapi_client.Configuration(
+configuration = nitrozenio.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with nitrozenio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AuthenticationApi(api_client)
+    api_instance = nitrozenio.AuthenticationApi(api_client)
     tokens_post_request = {"name":"CI/CD Pipeline"} # TokensPostRequest | 
 
     try:
@@ -179,13 +179,13 @@ Permanently revokes an API token. Any requests using this token will be rejected
 * Bearer Authentication (BearerAuth):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import nitrozenio
+from nitrozenio.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://nitrozen.io/api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = nitrozenio.Configuration(
     host = "https://nitrozen.io/api/v1"
 )
 
@@ -195,14 +195,14 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: BearerAuth
-configuration = openapi_client.Configuration(
+configuration = nitrozenio.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with nitrozenio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AuthenticationApi(api_client)
+    api_instance = nitrozenio.AuthenticationApi(api_client)
     token = 56 # int | Token ID
 
     try:

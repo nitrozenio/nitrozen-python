@@ -1,4 +1,4 @@
-# openapi_client.UsersApi
+# nitrozenio.UsersApi
 
 All URIs are relative to *https://nitrozen.io/api/v1*
 
@@ -20,14 +20,14 @@ Returns the authenticated user's profile and plan details.
 * Bearer Authentication (BearerAuth):
 
 ```python
-import openapi_client
-from openapi_client.models.user_get200_response import UserGet200Response
-from openapi_client.rest import ApiException
+import nitrozenio
+from nitrozenio.models.user_get200_response import UserGet200Response
+from nitrozenio.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://nitrozen.io/api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = nitrozenio.Configuration(
     host = "https://nitrozen.io/api/v1"
 )
 
@@ -37,14 +37,14 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: BearerAuth
-configuration = openapi_client.Configuration(
+configuration = nitrozenio.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with nitrozenio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.UsersApi(api_client)
+    api_instance = nitrozenio.UsersApi(api_client)
 
     try:
         # Get current user
@@ -95,14 +95,14 @@ Returns current usage counts and plan limits.
 * Bearer Authentication (BearerAuth):
 
 ```python
-import openapi_client
-from openapi_client.models.user_usage_get200_response import UserUsageGet200Response
-from openapi_client.rest import ApiException
+import nitrozenio
+from nitrozenio.models.user_usage_get200_response import UserUsageGet200Response
+from nitrozenio.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://nitrozen.io/api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = nitrozenio.Configuration(
     host = "https://nitrozen.io/api/v1"
 )
 
@@ -112,14 +112,14 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: BearerAuth
-configuration = openapi_client.Configuration(
+configuration = nitrozenio.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with nitrozenio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.UsersApi(api_client)
+    api_instance = nitrozenio.UsersApi(api_client)
 
     try:
         # Get usage statistics

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.project_input import ProjectInput
+from nitrozenio.models.project_input import ProjectInput
 
 # TODO update the JSON string below
 json = "{}"

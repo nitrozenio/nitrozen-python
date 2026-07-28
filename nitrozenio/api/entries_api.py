@@ -930,7 +930,7 @@ class EntriesApi:
     def projects_project_entries_get(
         self,
         project: Annotated[StrictInt, Field(description="Project ID")],
-        category: Annotated[Optional[StrictStr], Field(description="Filter by category")] = None,
+        category: Annotated[Optional[StrictStr], Field(description="Filter by category slug. Every project has the built-in categories `new`, `improvement`, `fix`, and `announcement`; projects on plans with custom categories enabled may also have additional project-specific slugs. ")] = None,
         status: Annotated[Optional[StrictStr], Field(description="Filter by publish status")] = None,
         page: Annotated[Optional[StrictInt], Field(description="Page number")] = None,
         per_page: Annotated[Optional[Annotated[int, Field(le=100, strict=True)]], Field(description="Items per page")] = None,
@@ -953,7 +953,7 @@ class EntriesApi:
 
         :param project: Project ID (required)
         :type project: int
-        :param category: Filter by category
+        :param category: Filter by category slug. Every project has the built-in categories `new`, `improvement`, `fix`, and `announcement`; projects on plans with custom categories enabled may also have additional project-specific slugs. 
         :type category: str
         :param status: Filter by publish status
         :type status: str
@@ -1015,7 +1015,7 @@ class EntriesApi:
     def projects_project_entries_get_with_http_info(
         self,
         project: Annotated[StrictInt, Field(description="Project ID")],
-        category: Annotated[Optional[StrictStr], Field(description="Filter by category")] = None,
+        category: Annotated[Optional[StrictStr], Field(description="Filter by category slug. Every project has the built-in categories `new`, `improvement`, `fix`, and `announcement`; projects on plans with custom categories enabled may also have additional project-specific slugs. ")] = None,
         status: Annotated[Optional[StrictStr], Field(description="Filter by publish status")] = None,
         page: Annotated[Optional[StrictInt], Field(description="Page number")] = None,
         per_page: Annotated[Optional[Annotated[int, Field(le=100, strict=True)]], Field(description="Items per page")] = None,
@@ -1038,7 +1038,7 @@ class EntriesApi:
 
         :param project: Project ID (required)
         :type project: int
-        :param category: Filter by category
+        :param category: Filter by category slug. Every project has the built-in categories `new`, `improvement`, `fix`, and `announcement`; projects on plans with custom categories enabled may also have additional project-specific slugs. 
         :type category: str
         :param status: Filter by publish status
         :type status: str
@@ -1100,7 +1100,7 @@ class EntriesApi:
     def projects_project_entries_get_without_preload_content(
         self,
         project: Annotated[StrictInt, Field(description="Project ID")],
-        category: Annotated[Optional[StrictStr], Field(description="Filter by category")] = None,
+        category: Annotated[Optional[StrictStr], Field(description="Filter by category slug. Every project has the built-in categories `new`, `improvement`, `fix`, and `announcement`; projects on plans with custom categories enabled may also have additional project-specific slugs. ")] = None,
         status: Annotated[Optional[StrictStr], Field(description="Filter by publish status")] = None,
         page: Annotated[Optional[StrictInt], Field(description="Page number")] = None,
         per_page: Annotated[Optional[Annotated[int, Field(le=100, strict=True)]], Field(description="Items per page")] = None,
@@ -1123,7 +1123,7 @@ class EntriesApi:
 
         :param project: Project ID (required)
         :type project: int
-        :param category: Filter by category
+        :param category: Filter by category slug. Every project has the built-in categories `new`, `improvement`, `fix`, and `announcement`; projects on plans with custom categories enabled may also have additional project-specific slugs. 
         :type category: str
         :param status: Filter by publish status
         :type status: str

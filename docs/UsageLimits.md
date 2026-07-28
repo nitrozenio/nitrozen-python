@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.usage_limits import UsageLimits
+from nitrozenio.models.usage_limits import UsageLimits
 
 # TODO update the JSON string below
 json = "{}"

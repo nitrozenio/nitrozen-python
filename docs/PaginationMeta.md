@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.pagination_meta import PaginationMeta
+from nitrozenio.models.pagination_meta import PaginationMeta
 
 # TODO update the JSON string below
 json = "{}"

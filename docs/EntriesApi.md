@@ -1,4 +1,4 @@
-# openapi_client.EntriesApi
+# nitrozenio.EntriesApi
 
 All URIs are relative to *https://nitrozen.io/api/v1*
 
@@ -23,13 +23,13 @@ Permanently deletes a changelog entry.
 * Bearer Authentication (BearerAuth):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import nitrozenio
+from nitrozenio.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://nitrozen.io/api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = nitrozenio.Configuration(
     host = "https://nitrozen.io/api/v1"
 )
 
@@ -39,14 +39,14 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: BearerAuth
-configuration = openapi_client.Configuration(
+configuration = nitrozenio.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with nitrozenio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.EntriesApi(api_client)
+    api_instance = nitrozenio.EntriesApi(api_client)
     project = 56 # int | Project ID
     entry = 56 # int | Entry ID
 
@@ -103,14 +103,14 @@ Returns a single entry by ID.
 * Bearer Authentication (BearerAuth):
 
 ```python
-import openapi_client
-from openapi_client.models.projects_project_entries_post201_response import ProjectsProjectEntriesPost201Response
-from openapi_client.rest import ApiException
+import nitrozenio
+from nitrozenio.models.projects_project_entries_post201_response import ProjectsProjectEntriesPost201Response
+from nitrozenio.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://nitrozen.io/api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = nitrozenio.Configuration(
     host = "https://nitrozen.io/api/v1"
 )
 
@@ -120,14 +120,14 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: BearerAuth
-configuration = openapi_client.Configuration(
+configuration = nitrozenio.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with nitrozenio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.EntriesApi(api_client)
+    api_instance = nitrozenio.EntriesApi(api_client)
     project = 56 # int | Project ID
     entry = 56 # int | Entry ID
 
@@ -186,15 +186,15 @@ Updates an existing changelog entry.
 * Bearer Authentication (BearerAuth):
 
 ```python
-import openapi_client
-from openapi_client.models.entry_input import EntryInput
-from openapi_client.models.projects_project_entries_post201_response import ProjectsProjectEntriesPost201Response
-from openapi_client.rest import ApiException
+import nitrozenio
+from nitrozenio.models.entry_input import EntryInput
+from nitrozenio.models.projects_project_entries_post201_response import ProjectsProjectEntriesPost201Response
+from nitrozenio.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://nitrozen.io/api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = nitrozenio.Configuration(
     host = "https://nitrozen.io/api/v1"
 )
 
@@ -204,17 +204,17 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: BearerAuth
-configuration = openapi_client.Configuration(
+configuration = nitrozenio.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with nitrozenio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.EntriesApi(api_client)
+    api_instance = nitrozenio.EntriesApi(api_client)
     project = 56 # int | Project ID
     entry = 56 # int | Entry ID
-    entry_input = openapi_client.EntryInput() # EntryInput | 
+    entry_input = nitrozenio.EntryInput() # EntryInput | 
 
     try:
         # Update an entry
@@ -273,14 +273,14 @@ Returns entries for a project with optional filtering and pagination.
 * Bearer Authentication (BearerAuth):
 
 ```python
-import openapi_client
-from openapi_client.models.projects_project_entries_get200_response import ProjectsProjectEntriesGet200Response
-from openapi_client.rest import ApiException
+import nitrozenio
+from nitrozenio.models.projects_project_entries_get200_response import ProjectsProjectEntriesGet200Response
+from nitrozenio.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://nitrozen.io/api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = nitrozenio.Configuration(
     host = "https://nitrozen.io/api/v1"
 )
 
@@ -290,16 +290,16 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: BearerAuth
-configuration = openapi_client.Configuration(
+configuration = nitrozenio.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with nitrozenio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.EntriesApi(api_client)
+    api_instance = nitrozenio.EntriesApi(api_client)
     project = 56 # int | Project ID
-    category = 'category_example' # str | Filter by category (optional)
+    category = 'category_example' # str | Filter by category slug. Every project has the built-in categories `new`, `improvement`, `fix`, and `announcement`; projects on plans with custom categories enabled may also have additional project-specific slugs.  (optional)
     status = 'status_example' # str | Filter by publish status (optional)
     page = 1 # int | Page number (optional) (default to 1)
     per_page = 15 # int | Items per page (optional) (default to 15)
@@ -321,7 +321,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project** | **int**| Project ID | 
- **category** | **str**| Filter by category | [optional] 
+ **category** | **str**| Filter by category slug. Every project has the built-in categories &#x60;new&#x60;, &#x60;improvement&#x60;, &#x60;fix&#x60;, and &#x60;announcement&#x60;; projects on plans with custom categories enabled may also have additional project-specific slugs.  | [optional] 
  **status** | **str**| Filter by publish status | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **per_page** | **int**| Items per page | [optional] [default to 15]
@@ -363,15 +363,15 @@ If `published_at` is not provided for a published entry, it defaults to the curr
 * Bearer Authentication (BearerAuth):
 
 ```python
-import openapi_client
-from openapi_client.models.entry_input import EntryInput
-from openapi_client.models.projects_project_entries_post201_response import ProjectsProjectEntriesPost201Response
-from openapi_client.rest import ApiException
+import nitrozenio
+from nitrozenio.models.entry_input import EntryInput
+from nitrozenio.models.projects_project_entries_post201_response import ProjectsProjectEntriesPost201Response
+from nitrozenio.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://nitrozen.io/api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = nitrozenio.Configuration(
     host = "https://nitrozen.io/api/v1"
 )
 
@@ -381,14 +381,14 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization: BearerAuth
-configuration = openapi_client.Configuration(
+configuration = nitrozenio.Configuration(
     access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with nitrozenio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.EntriesApi(api_client)
+    api_instance = nitrozenio.EntriesApi(api_client)
     project = 56 # int | Project ID
     entry_input = {"title":"Dark mode support","content":"We've added dark mode across the entire application.","category":"new","is_published":true} # EntryInput | 
 

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional] 
 **title** | **str** |  | [optional] 
 **content** | **str** |  | [optional] 
-**category** | **str** |  | [optional] 
+**category** | **str** | The entry&#39;s category slug. Every project has the built-in categories &#x60;new&#x60;, &#x60;improvement&#x60;, &#x60;fix&#x60;, and &#x60;announcement&#x60;; projects on plans with custom categories enabled may also define additional project-specific slugs.  | [optional] 
 **is_published** | **bool** |  | [optional] 
 **published_at** | **datetime** |  | [optional] 
 **created_at** | **datetime** |  | [optional] 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.entry import Entry
+from nitrozenio.models.entry import Entry
 
 # TODO update the JSON string below
 json = "{}"

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.new_token import NewToken
+from nitrozenio.models.new_token import NewToken
 
 # TODO update the JSON string below
 json = "{}"

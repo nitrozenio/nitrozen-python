@@ -21,3 +21,10 @@
 #docs/*.md
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
+
+# Hand-customized files — regeneration must not overwrite these.
+README.md
+test_sdk.py
+.gitignore
+pyproject.toml
+setup.py

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,22 +30,12 @@ class Entry(BaseModel):
     id: Optional[StrictInt] = None
     title: Optional[StrictStr] = None
     content: Optional[StrictStr] = None
-    category: Optional[StrictStr] = None
+    category: Optional[StrictStr] = Field(default=None, description="The entry's category slug. Every project has the built-in categories `new`, `improvement`, `fix`, and `announcement`; projects on plans with custom categories enabled may also define additional project-specific slugs. ")
     is_published: Optional[StrictBool] = None
     published_at: Optional[datetime] = None
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
     __properties: ClassVar[List[str]] = ["id", "title", "content", "category", "is_published", "published_at", "created_at", "updated_at"]
-
-    @field_validator('category')
-    def category_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['new', 'improvement', 'fix', 'announcement']):
-            raise ValueError("must be one of enum values ('new', 'improvement', 'fix', 'announcement')")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
