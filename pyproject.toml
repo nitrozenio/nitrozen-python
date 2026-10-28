@@ -1,6 +1,6 @@
 [project]
 name = "nitrozenio"
-version = "1.0.0"
+version = "1.1.0"
 description = "Official Python SDK for the Nitrozen.io changelog API"
 authors = [
   {name = "Nitrozen.io",email = "support@nitrozen.io"},
