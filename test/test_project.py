@@ -38,6 +38,7 @@ class TestProject(unittest.TestCase):
                 id = 56,
                 name = '',
                 slug = '',
+                public_url = 'https://nitrozen.io/c/textproxyz',
                 description = '',
                 custom_domain = '',
                 domain_verification_status = 'pending',

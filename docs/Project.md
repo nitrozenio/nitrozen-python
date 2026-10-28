@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional] 
 **name** | **str** |  | [optional] 
 **slug** | **str** |  | [optional] 
+**public_url** | **str** | Public changelog page URL. &#x60;https://&lt;custom_domain&gt;&#x60; when the project&#39;s custom domain is verified, otherwise &#x60;https://nitrozen.io/c/&lt;slug&gt;&#x60;. Read-only; ignored on create and update. | [optional] [readonly] 
 **description** | **str** |  | [optional] 
 **custom_domain** | **str** |  | [optional] 
 **domain_verification_status** | **str** |  | [optional] 
