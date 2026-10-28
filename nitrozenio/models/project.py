@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,13 +30,14 @@ class Project(BaseModel):
     id: Optional[StrictInt] = None
     name: Optional[StrictStr] = None
     slug: Optional[StrictStr] = None
+    public_url: Optional[StrictStr] = Field(default=None, description="Public changelog page URL. `https://<custom_domain>` when the project's custom domain is verified, otherwise `https://nitrozen.io/c/<slug>`. Read-only; ignored on create and update.")
     description: Optional[StrictStr] = None
     custom_domain: Optional[StrictStr] = None
     domain_verification_status: Optional[StrictStr] = None
     entries_count: Optional[StrictInt] = None
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
-    __properties: ClassVar[List[str]] = ["id", "name", "slug", "description", "custom_domain", "domain_verification_status", "entries_count", "created_at", "updated_at"]
+    __properties: ClassVar[List[str]] = ["id", "name", "slug", "public_url", "description", "custom_domain", "domain_verification_status", "entries_count", "created_at", "updated_at"]
 
     @field_validator('domain_verification_status')
     def domain_verification_status_validate_enum(cls, value):
@@ -78,8 +79,10 @@ class Project(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "public_url",
         ])
 
         _dict = self.model_dump(
@@ -117,6 +120,7 @@ class Project(BaseModel):
             "id": obj.get("id"),
             "name": obj.get("name"),
             "slug": obj.get("slug"),
+            "public_url": obj.get("public_url"),
             "description": obj.get("description"),
             "custom_domain": obj.get("custom_domain"),
             "domain_verification_status": obj.get("domain_verification_status"),
